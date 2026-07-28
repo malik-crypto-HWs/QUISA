@@ -136,7 +136,9 @@ QUISA/
 
 ---
 
-## Performance (in terms of clock cycles) Summary (at 80 MHz)
+## Implementation Notes
+
+## Hardware-Oriented Rejection Sampling
 
 <p align="center">
   <img src="docs/rejsamp_modification.png" width="850">
