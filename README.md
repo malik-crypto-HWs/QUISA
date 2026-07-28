@@ -141,13 +141,14 @@ QUISA/
 ## Hardware-Oriented Rejection Sampling
 
 <p align="center">
-  ##<img src="docs/rejsamp_sampling.jpg" width="850">
-  ![Rejection Sampling](docs/rejection_sampling.jpg)
+  <img src="docs/rejection_sampling.jpg"
+       alt="Reference and modified rejection sampling implementations"
+       width="850">
 </p>
 
 <p align="center">
-<b>Fig. 1.</b> Reference QR-UOV Round-2 implementation of
-<code>rejsamp_rejection_with_aux()</code> (top) and the modified QUISA implementation (bottom).
+  <b>Fig. 1.</b> Reference QR-UOV Round-2 implementation of
+  <code>rejsamp_rejection_with_aux()</code> (top) and the modified QUISA implementation (bottom).
 </p>
 
 ## Reference Specification
