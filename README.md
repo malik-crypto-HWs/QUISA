@@ -8,12 +8,12 @@ The authors assume no responsibility for any bugs, errors, or failures arising f
 ---
 
 ## How to Configure the QUISA for different security levels 
-To run the behavioral simulations, simply set the SECAP signal in the top module (qruov_top.v) according to the following options.
+To run the behavioral simulations, simply set the SECAP signal in the top module (qruov_top.v) according to the desired security level.
 1. SECAP = 1 (for SL-I)
 2. SECAP = 5 (for SL-III)
 3. SECAP = 9 (for SL-V)
 
--- No additional changes are needed. 
+-- No additional changes are required. 
 
 
 ## Overview
@@ -24,7 +24,7 @@ This repository contains the complete RTL implementation accompanying the paper:
 
 > **"QUISA: A Compact, Flexible and Unified Instruction-Set Coprocessor for QR-UOV Signature"**  
 > Will be added later.  
-> Submitted to IACR Transactions on Cryptographic Hardware and Embedded Systems (TCHES), 2025.  
+> Submitted to IEEE Transactions on Computers (TC), 2026.  
 > DOI: *(to be added upon publication)*
 
 ---
@@ -74,8 +74,10 @@ QUISA/
 │   ├── TB_VERIFY_SL1.v 	 	 					# verification for SL-I
 │   ├── TB_VERIFY_SL3.v 	 	 					# verification for SL-III
 │   ├── TB_VERIFY_SL5.v 	 	 					# verification for SL-V
-├── constraints/              					    # Xilinx XDC constraint files (Artix-7)
+├── constraints/              				# Xilinx XDC constraint files (Artix-7)
 │   ├── constraints.xdc  	 						# constraints file
+├── docs/              				# Xilinx XDC constraint files (Artix-7)
+│   ├── rejsamp_modification.png  	 						# figure explaining the changes we made in the round-2 reference C/C++ code
 └── README.md
 ```
 
@@ -133,6 +135,17 @@ QUISA/
 - Parallel SHAKE-128/256 wrapper supporting PRG and Hash operations
 
 ---
+
+## Performance (in terms of clock cycles) Summary (at 80 MHz)
+
+<p align="center">
+  <img src="docs/rejsamp_modification.png" width="850">
+</p>
+
+<p align="center">
+<b>Fig. 1.</b> Reference QR-UOV Round-2 implementation of
+<code>rejsamp_rejection_with_aux()</code> (top) and the modified QUISA implementation (bottom).
+</p>
 
 ## Reference Specification
 
