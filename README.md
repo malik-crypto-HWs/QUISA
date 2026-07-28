@@ -29,6 +29,9 @@ This repository contains the complete RTL implementation accompanying the paper:
 
 ---
 
+## Repository Structure 
+
+```
 QUISA/
 ├── rtl/                                         # RTL source files
 │   ├── qruov_top.v                              # Top module of QUISA
@@ -87,6 +90,8 @@ QUISA/
 │   └── rejection_sampling.jpg                   # Rejection-sampling modification
 │
 └── README.md                                    # Repository documentation
+```
+
 ---
 
 ## Target Platform
