@@ -1,1 +1,0 @@
-Documentation figures for QUISA.
