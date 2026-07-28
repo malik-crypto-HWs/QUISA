@@ -141,7 +141,8 @@ QUISA/
 ## Hardware-Oriented Rejection Sampling
 
 <p align="center">
-  <img src="docs/rejsamp_sampling.jpg" width="850">
+  ##<img src="docs/rejsamp_sampling.jpg" width="850">
+  ![Rejection Sampling](docs/rejection_sampling.jpg)
 </p>
 
 <p align="center">
