@@ -76,8 +76,8 @@ QUISA/
 │   ├── TB_VERIFY_SL5.v 	 	 					# verification for SL-V
 ├── constraints/              				# Xilinx XDC constraint files (Artix-7)
 │   ├── constraints.xdc  	 						# constraints file
-├── docs/              				# Xilinx XDC constraint files (Artix-7)
-│   ├── rejsamp_modification.png  	 						# figure explaining the changes we made in the round-2 reference C/C++ code
+├── docs/              				        # Xilinx XDC constraint files (Artix-7)
+│   ├── rejsamp_modification.png  	 	# figure explaining the changes we made in the round-2 reference C/C++ code
 └── README.md
 ```
 
