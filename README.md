@@ -29,58 +29,64 @@ This repository contains the complete RTL implementation accompanying the paper:
 
 ---
 
-## Repository Structure 
-
-```
 QUISA/
-├── rtl/  -> All the files are located in the "rtl". The following hierarchy just shows the relevant files for the corresponding functional module.
-│   ├── qruov_top.v 								# top module of the QUISA 
-│   ├── Palallel pseudorandom sampling and packing unit (PPSPU) --> it comprises the following RTL files
-│   	├── shake_wrapper.v 						# SHAKE-128/256 warapper (top file) 
-│   		├── keccak.vhd	 						# keccak top
-│   			├── keccak_round.vhd 				# keccak round 
-│   			├── keccak_round_constants_gen.vhd 	# keccak round constants
-│   			├── keccak_buffer.vhd 				# keccak buffer
-│   	├── rejsamp.v 		 						# rejection sampling 
-│   		├── rejsamp_and_q.v 					# generating elements over F_q and F_q^m
-│   		├── eight_bytes_reordering.v 			# reordering eight bytes and their corresponding valid flags (Bytes Selector Unit of the manuscript)                 
-│   	├── op_format_block_rejsamp.v 				# output format block (OFB) to write 24-bit words on memory units
-│   	├── byte_stream_unit.v 						# byte stream unit to support Hash operations 
-│   ├── Arithmetic Unit (AU) --> it includes the following RTL files
-│   	├── arithmetic_unit.v 				        # top file (generating read/write addresses for V-V, V-M and M-M operations)
-│   		├── mac_tile.v 							# mac tile 
-│   		├── mod_add.v 							# modular adder (supporting 3 lanes) 
-│   		├── mod_sub.v 							# modular subtractor (supporting 3 lanes) 
-│   ├── Linear Sample Solver (LSS) --> it comprises the following RTL files
-│   	├── s_solution.v 				        # Sample solution unit (S-Sol)
-│   	├── lu_decompose.v 				      # lu decompose block (LUB)
-│   	├── copy_words.v 				        # copy words block
-│   ├── compare.v 					          # compare unit for signature verification 
-│   ├── memory.v 					            # This file is for MEM-3 (for MEM-1 and MEM-2 generate true dual-port BRAMs IPs from Vivado) 
-│   ├── qruov_parameters.v 					  # QR-UOV parameters (QUISA operates on 1, 5 and 9 for SL-I, SL-III and SL-V) 
-├── header_files/                     # Header files
-│   ├── signal_sizes.vh 							# defining signal lengths
-├── coefficient_files/		            # Coefficient files 
-│   ├── INT_MEM_SL_I.coe 	 						# coefficient file regarding SL-I containing Pi,3 matrix for signature verification operation
-│   ├── INT_MEM_SL_III.coe 	 					# coefficient file regarding SL-III containing Pi,3 matrix for signature verification operation
-│   ├── INT_MEM_SL_V.coe 	 						# coefficient file regarding SL-V containing Pi,3 matrix for signature verification operation
-├── tb/                         			# Testbench files
-│   ├── TB_KG_SL1.v 	 	 						  # key generation SL-I
-│   ├── TB_KG_SL3.v 	 	 						  # key generation SL-III
-│   ├── TB_KG_SL5.v 	 	 						  # key generation SL-V
-│   ├── TB_SIGN_SL1.v 	 	 						# signing for SL-I
-│   ├── TB_SIGN_SL3.v 	 	 						# signing for SL-III
-│   ├── TB_SIGN_SL5.v 	 	 						# signing for SL-V
-│   ├── TB_VERIFY_SL1.v 	 	 					# verification for SL-I
-│   ├── TB_VERIFY_SL3.v 	 	 					# verification for SL-III
-│   ├── TB_VERIFY_SL5.v 	 	 					# verification for SL-V
-├── constraints/              				# Xilinx XDC constraint files (Artix-7)
-│   ├── constraints.xdc  	 						# constraints file
-├── docs/              				        # Xilinx XDC constraint files (Artix-7)
-│   ├── rejsamp_modification.png  	 	# figure explaining the changes we made in the round-2 reference C/C++ code
-└── README.md
-```
-
+├── rtl/                                         # RTL source files
+│   ├── qruov_top.v                              # Top module of QUISA
+│   │
+│   ├── Parallel Pseudorandom Sampling and
+│   │   Packing Unit (PPSPU)
+│   │   ├── shake_wrapper.v                      # SHAKE-128/256 wrapper top module
+│   │   ├── keccak.vhd                           # KECCAK top module
+│   │   ├── keccak_round.vhd                     # KECCAK round module
+│   │   ├── keccak_round_constants_gen.vhd       # KECCAK round-constant generator
+│   │   ├── keccak_buffer.vhd                    # KECCAK buffer
+│   │   ├── rejsamp.v                            # Rejection-sampling top module
+│   │   ├── rejsamp_and_q.v                      # Generates elements over F_q and F_q^m
+│   │   ├── eight_bytes_reordering.v             # Byte Selector Unit
+│   │   ├── op_format_block_rejsamp.v            # Output Format Block for 24-bit writes
+│   │   └── byte_stream_unit.v                   # Byte-stream support for Hash operations
+│   │
+│   ├── Arithmetic Unit (AU)
+│   │   ├── arithmetic_unit.v                    # AU top and address-generation logic
+│   │   ├── mac_tile.v                           # Multiply-accumulate tile
+│   │   ├── mod_add.v                            # Three-lane modular adder
+│   │   └── mod_sub.v                            # Three-lane modular subtractor
+│   │
+│   ├── Linear System Solver (LSS)
+│   │   ├── s_solution.v                         # Sample Solution unit
+│   │   ├── lu_decompose.v                       # LU decomposition block
+│   │   └── copy_words.v                         # Word-copy block
+│   │
+│   ├── compare.v                                # Signature-verification compare unit
+│   ├── memory.v                                 # MEM-3 implementation
+│   └── qruov_parameters.v                       # QR-UOV parameter configuration
+│
+├── header_files/                                # Verilog header files
+│   └── signal_sizes.vh                          # Signal-width definitions
+│
+├── coefficient_files/                           # Memory coefficient files
+│   ├── INT_MEM_SL_I.coe                         # SL-I Pi,3 verification coefficients
+│   ├── INT_MEM_SL_III.coe                       # SL-III Pi,3 verification coefficients
+│   └── INT_MEM_SL_V.coe                         # SL-V Pi,3 verification coefficients
+│
+├── tb/                                          # Testbench files
+│   ├── TB_KG_SL1.v                              # SL-I key generation
+│   ├── TB_KG_SL3.v                              # SL-III key generation
+│   ├── TB_KG_SL5.v                              # SL-V key generation
+│   ├── TB_SIGN_SL1.v                            # SL-I signing
+│   ├── TB_SIGN_SL3.v                            # SL-III signing
+│   ├── TB_SIGN_SL5.v                            # SL-V signing
+│   ├── TB_VERIFY_SL1.v                          # SL-I verification
+│   ├── TB_VERIFY_SL3.v                          # SL-III verification
+│   └── TB_VERIFY_SL5.v                          # SL-V verification
+│
+├── constraints/                                 # Xilinx XDC constraint files
+│   └── constraints.xdc                          # Artix-7 timing and pin constraints
+│
+├── docs/                                        # Documentation figures
+│   └── rejection_sampling.jpg                   # Rejection-sampling modification
+│
+└── README.md                                    # Repository documentation
 ---
 
 ## Target Platform
