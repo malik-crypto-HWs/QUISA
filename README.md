@@ -1,7 +1,5 @@
 # QUISA: QR-UOV-based Instruction-Set Coprocessor Architecture
 
-QUISA is fully compliant with the Round 2 specification of the QR-UOV except rejsamp_rejection_with_aux(), which is modified for QUISA (see Fig. 1).
-
 
 ## Disclaimer
 This project is intended for research purposes only. 
@@ -139,6 +137,8 @@ QUISA/
 ---
 
 ## Implementation Notes
+
+QUISA is fully compliant with the Round 2 specification of the QR-UOV except rejsamp_rejection_with_aux(), which is modified for QUISA (see Fig. 1).
 
 ## Hardware-Oriented Rejection Sampling
 
