@@ -143,7 +143,7 @@ QUISA/
 <p align="center">
   <img src="docs/rejection_sampling.jpg"
        alt="Reference and modified rejection sampling implementations"
-       width="850">
+       width="650">
 </p>
 
 <p align="center">
@@ -157,6 +157,7 @@ The implementation is based on the QR-UOV round-2 specification:
 
 > Furue, H. et al. *QR-UOV Specification Document*, Round 2, February 2025.  
 > Available at: https://csrc.nist.gov/csrc/media/Projects/pqc-dig-sig/documents/qruov-spec-round2-web.pdf
+> QUISA is fully compliant with the Round 2 specification of the QR-UOV except rejsamp_rejection_with_aux(), which is modified for QUISA (see Fig. 1).  
 
 ---
 
