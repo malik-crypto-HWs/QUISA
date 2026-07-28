@@ -52,22 +52,22 @@ QUISA/
 │   		├── mod_add.v 							# modular adder (supporting 3 lanes) 
 │   		├── mod_sub.v 							# modular subtractor (supporting 3 lanes) 
 │   ├── Linear Sample Solver (LSS) --> it comprises the following RTL files
-│   	├── s_solution.v 				            # Sample solution unit (S-Sol)
-│   	├── lu_decompose.v 				            # lu decompose block (LUB)
-│   	├── copy_words.v 				            # copy words block
-│   ├── compare.v 					                # compare unit for signature verification 
-│   ├── memory.v 					                # This file is for MEM-3 (for MEM-1 and MEM-2 generate true dual-port BRAMs IPs from Vivado) 
-│   ├── qruov_parameters.v 					        # QR-UOV parameters (QUISA operates on 1, 5 and 9 for SL-I, SL-III and SL-V) 
-├── header_files/                     			    # Header files
+│   	├── s_solution.v 				        # Sample solution unit (S-Sol)
+│   	├── lu_decompose.v 				      # lu decompose block (LUB)
+│   	├── copy_words.v 				        # copy words block
+│   ├── compare.v 					          # compare unit for signature verification 
+│   ├── memory.v 					            # This file is for MEM-3 (for MEM-1 and MEM-2 generate true dual-port BRAMs IPs from Vivado) 
+│   ├── qruov_parameters.v 					  # QR-UOV parameters (QUISA operates on 1, 5 and 9 for SL-I, SL-III and SL-V) 
+├── header_files/                     # Header files
 │   ├── signal_sizes.vh 							# defining signal lengths
-├── coefficient_files/		                        # Coefficient files 
+├── coefficient_files/		            # Coefficient files 
 │   ├── INT_MEM_SL_I.coe 	 						# coefficient file regarding SL-I containing Pi,3 matrix for signature verification operation
-│   ├── INT_MEM_SL_III.coe 	 						# coefficient file regarding SL-III containing Pi,3 matrix for signature verification operation
+│   ├── INT_MEM_SL_III.coe 	 					# coefficient file regarding SL-III containing Pi,3 matrix for signature verification operation
 │   ├── INT_MEM_SL_V.coe 	 						# coefficient file regarding SL-V containing Pi,3 matrix for signature verification operation
-├── tb/                         					# Testbench files
-│   ├── TB_KG_SL1.v 	 	 						# key generation SL-I
-│   ├── TB_KG_SL3.v 	 	 						# key generation SL-III
-│   ├── TB_KG_SL5.v 	 	 						# key generation SL-V
+├── tb/                         			# Testbench files
+│   ├── TB_KG_SL1.v 	 	 						  # key generation SL-I
+│   ├── TB_KG_SL3.v 	 	 						  # key generation SL-III
+│   ├── TB_KG_SL5.v 	 	 						  # key generation SL-V
 │   ├── TB_SIGN_SL1.v 	 	 						# signing for SL-I
 │   ├── TB_SIGN_SL3.v 	 	 						# signing for SL-III
 │   ├── TB_SIGN_SL5.v 	 	 						# signing for SL-V
